@@ -1,3 +1,4 @@
+
 FRESH TOMATOES MOVIE TRAILER is an Udacity Fullstack Nanodegree Project. The idea is to be able to view trailers of selected movies on site.
 It was built with Python, HTML, CSS and JQUERY.
 
@@ -44,4 +45,5 @@ __class movies.py__  Based on the properties defined(e.g movie_title) in the pre
 - Boilerplate code contributed by [Udacity](http://www.udacity.com).
 - Additional code contributed by [Ijebusoma]() is offered under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 Bootstrap 3
+
 
