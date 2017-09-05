@@ -15,7 +15,7 @@ central_intelligence = movieclass.Movie("Central Intelligence",
                                         "images/ci.jpg",
                                         "https://www.youtube.com/watch?v=MxEw3elSJ8M")
 zootopia = movieclass.Movie("Zootopia",
-                            "Story of a female detective",
+                            "Story of a female detective determined to prove her worth",
                             "images/zoo.jpeg",
                             "https://www.youtube.com/watch?v=bY73vFGhSVk")
 
@@ -27,7 +27,8 @@ thethirtythree = movieclass.Movie("The 33",
                                   "Story of 33 miners trapped underground",
                                   "images/33.jpg",
                                   "https://www.youtube.com/watch?v=hOoIBOYqHyw")
-
-
 movies = [captain_underpant, fault_in_our_stars, central_intelligence, zootopia, katwe, thethirtythree]
 fresh_tomatoes.open_movies_page(movies)
+
+
+

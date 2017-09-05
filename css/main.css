@@ -76,7 +76,44 @@ body {
         border-radius:5px;
 
         }
+        .tv-section
+        {
+        margin-left:50px;
+
+        }
+.cinema-section
+{
+margin:-580 330 50 0;
+padding-right:10px;
+float:right;
+position:relative;
+}
 
 
+#container { overflow: hidden;
+margin:-520 10 0 10 ;}
+.hitman
+{ padding-top:-30px; }
+
+#floated-imgs { float: right;}
+#floated-imgs img {display: block; }
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}
 
 

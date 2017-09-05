@@ -7,7 +7,7 @@
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.play', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -24,7 +24,9 @@
           });
         });
 
-       $(document).on('click', '.poster', function (event) {
-//popup or drop down a modal
+$(document).on('click', '.poster', function (event) {
+var storyline = $(this).attr('movie_storyline')
+jQuery.noConflict();
+$('#detailModal').modal('show');
 
-       }
+});
