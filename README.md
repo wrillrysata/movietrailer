@@ -1,5 +1,5 @@
 
-FRESH TOMATOES MOVIE TRAILER is an Udacity Fullstack Nanodegree Project. The idea is to be able to view trailers of selected movies on site.
+FRESH TOMATOES MOVIE TRAILER is a Udacity Fullstack Nanodegree Project. The idea is to be able to view trailers of selected movies on site.
 It was built with Python, HTML, CSS and JQUERY.
 
 
