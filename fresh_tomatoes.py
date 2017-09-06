@@ -3,28 +3,138 @@ import os
 import re
 
 # Styles and scripting for the page
-
 main_page_head = '''
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fresh Tomatoes!</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="js/main.js"></script>
-  </head>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            font-family: 'Raleway', sans-serif; 
+            color: #333333;
+        }
+        p,h2
+        {
+            font-family: 'Dosis', sans-serif; 
+        }
+        a{
+            color: #333333;
+        }
+        a:hover{
+            color: #333333;
+        }
+        .navbar-brand
+        {
+        color:#4169E1;
+        }
+        .navbar{
+            background: white;
+            box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, .05);
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile img{
+            border-radius: 5px;
+            box-shadow: 2px 3px 4px 0 rgba(0, 0, 0, .50);
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }        
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            cursor: pointer;
+        }
+        .movie-tile:hover > img{
+            transform: translateX(5px);
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .love
+        {
+        color:#4169E1;
+        font-size:10px;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .footer{
+            margin: 40px 0;
+            font-size: 12px;
+            line-height: 14px;
+            color: gray;
+            font-weight:bold;
+        }
+        .footer-text
+        {
+        font-size:15px;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.play', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'https://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
 '''
 
 # The main page layout and title bar
 main_page_content = '''
-<!DOCTYPE html>
-<html lang="en">
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
@@ -38,83 +148,72 @@ main_page_content = '''
         </div>
       </div>
     </div>
+    <!-- Main Page Content -->
     <div class="container">
-   <!--medium sized posters -->
-    <div class="tv-section">
-    <h3>On Tv</h3>
-    <img class="img-responsive" src = "images/suits.jpg" width="550" height="500">
-    </div>
-    <div class="cinema-section">
-    <h3>In Cinemas</h3>
-    </div>
-    <div id="container">
-    <div id="floated-imgs">
-        <img class = "img-responsive" src="images/darktower.jpg">
-        <img class="hitman img-responsive" src="images/hit.jpg">
-    </div>
- </div>
-</div>
-
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-fixed-top" role="navigation">
         <div class="container">
-          
-           <h3 class="caption">Fresh Tomatoes Movie Trailer</h3>
-           </div>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
         </div>
-      <h4><center>Featured Movies</center</h4>
+      </div>
     </div>
     <div class="container">
-    {movie_tiles}
+      {movie_tiles}
     </div>
-    <footer>
-<div class="content"> Made with <i class="fa fa-heart love" aria-hidden="true"></i> by Vanessa
-</div>
-</footer>
+        <div class="footer">
+        <p class="text-center"></p>
+        <p class="text-center footer-text">Made with <i class="fa fa-heart love" aria-hidden="true"></i> by Vanessa</p> 
+    </div>
   </body>
 </html>
 '''
 
+
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center">
-    <img src="{poster_image_url}" class ="poster" width="220" height="342">
+    <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
-   <h3 class ="storyline">{movie_storyline}</h3> 
-    <button class="btn btn-primary play" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <i class="fa fa-play" aria-hidden="true">Watch</button></i>
-    </div>
-
+    <button class="btn btn-primary play" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">Watch
+     <i class="fa fa-play" aria-hidden="true"></button></i>
+</div>
 '''
 
 
 def create_movie_tiles_content(movies):
-        # The HTML content for this section of the page
+    # The HTML content for this section of the page
     content = ''
     for movie in movies:
         # Extract the youtube ID from the url
-        youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
+        youtube_id_match = re.search(
+            r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
+        youtube_id_match = youtube_id_match or re.search(
+            r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
+        trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
+                              else None)
+
         # Append the tile for the movie with its content filled in
-    content += movie_tile_content.format(
+        content += movie_tile_content.format(
             movie_title=movie.title,
-            movie_storyline=movie.storyline,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id)
+            trailer_youtube_id=trailer_youtube_id
+        )
     return content
 
 
 def open_movies_page(movies):
     # Create or overwrite the output file
     output_file = open('fresh_tomatoes.html', 'w')
-    # Replace the placeholder for the movie tiles with the actual dynamically generated content
-    rendered_content = main_page_content.format(movie_tiles=
-                                                create_movie_tiles_content(movies))
+
+    # Replace the movie tiles placeholder generated content
+    rendered_content = main_page_content.format(
+        movie_tiles=create_movie_tiles_content(movies))
 
     # Output the file
     output_file.write(main_page_head + rendered_content)
     output_file.close()
-    # open the output file in the browser
+
+    # open the output file in the browser (in a new tab, if possible)
     url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)  # open in a new tab, if possible
+    webbrowser.open('file://' + url, new=2)

@@ -24,9 +24,6 @@ You need to have Python 2.7 installed on your local machine for this project to 
 ## Contents
 The projects contains the following files:
 
-- css
-
-- js
 
 - movieclass.py 
 

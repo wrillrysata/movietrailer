@@ -28,7 +28,7 @@ thethirtythree = movieclass.Movie("The 33",
                                   "Story of 33 miners trapped underground",
                                   "images/33.jpg",
                                   "https://www.youtube.com/watch?v=hOoIBOYqHyw")
-movies = [captain_underpant, zootopia, fault_in_our_stars, central_intelligence, katwe]
+movies = [captain_underpant, zootopia, fault_in_our_stars, central_intelligence, katwe, thethirtythree]
 fresh_tomatoes.open_movies_page(movies)
 
 
