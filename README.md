@@ -24,12 +24,17 @@ You need to have Python 2.7 installed on your local machine for this project to 
 ## Contents
 The projects contains the following files:
 
-*css
-*js
-*movieclass.py 
-*movie.py
-*freshtomatoes.py
-*freshtomatoes.html
+- css
+
+- js
+
+- movieclass.py 
+
+- movie.py
+
+- freshtomatoes.py
+
+- freshtomatoes.html
 
 ## Installation and Usage
 To install Fresh Tomatoes locally, clone the project into your system, on your terminal, switch into the directory you just cloned and do python movie.py. This command would trigger a new tab in your browser and generate a HTML page(freshtomatoes.html)
