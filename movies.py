@@ -20,7 +20,7 @@ zootopia = movieclass.Movie("Zootopia",
                             "https://www.youtube.com/watch?v=bY73vFGhSVk")
 
 katwe = movieclass.Movie("Queen of Katwe",
-                         "story of a girl that learns chess and triumphs despite her background",
+                         "Inspiring story of a girl that learns chess and rises despite all odds",
                          "images/katwe.jpg",
                          "https://www.youtube.com/watch?v=z4l3-_yub5A")
 
