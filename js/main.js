@@ -24,9 +24,3 @@
           });
         });
 
-$(document).on('click', '.poster', function (event) {
-var storyline = $(this).attr('movie_storyline')
-jQuery.noConflict();
-$('#detailModal').modal('show');
-
-});

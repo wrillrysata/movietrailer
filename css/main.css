@@ -20,18 +20,11 @@ body {
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 50px;
-
-
         }
         .love{
         color:blue;
-
         }
-
-        .movie-tile:hover {
-
-            cursor: pointer;
-        }
+        .movie-tile:hover {cursor: pointer;}
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -49,22 +42,19 @@ body {
         {
         font-size:20px;
         color:#180000;
-        
         }
        h4
         {
         padding:50 0 0 50;
         font-family: 'Shadows Into Light', cursive;
         font-size:40px;
-
-          }
-
+        }
         footer .content
         {
-        padding-top: 22px;
+       padding-top: 22px;
        padding-bottom: 22px;
        text-align:center;
-}
+        }
         .caption
         {
         text-align:center;
@@ -72,48 +62,30 @@ body {
         font-family: 'Dosis', sans-serif;
         }
         .poster
-        {
-        border-radius:5px;
-
-        }
+        {border-radius:5px;}
         .tv-section
+        {margin-left:50px;}
+        .cinema-section
         {
-        margin-left:50px;
-
+        margin:-580 330 50 0;
+        padding-right:10px;
+        float:right;
+        position:relative;
         }
-.cinema-section
-{
-margin:-580 330 50 0;
-padding-right:10px;
-float:right;
-position:relative;
-}
-
-
-#container { overflow: hidden;
-margin:-520 10 0 10 ;}
-.hitman
-{ padding-top:-30px; }
+       #container { overflow: hidden;
+       margin:-520 10 0 10 ;}
+      .hitman
+      {padding-top:-30px; }
 
 #floated-imgs { float: right;}
 #floated-imgs img {display: block; }
 
-#photos {
-  /* Prevent vertical gaps */
-  line-height: 0;
-
-  -webkit-column-count: 5;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    5;
-  -moz-column-gap:      0px;
-  column-count:         5;
-  column-gap:           0px;
-}
-
-#photos img {
-  /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
+.movie-tile img:hover{
+ -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 

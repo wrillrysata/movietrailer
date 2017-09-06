@@ -23,11 +23,12 @@ katwe = movieclass.Movie("Queen of Katwe",
                          "story of a girl that learns chess and triumphs despite her background",
                          "images/katwe.jpg",
                          "https://www.youtube.com/watch?v=z4l3-_yub5A")
+
 thethirtythree = movieclass.Movie("The 33",
                                   "Story of 33 miners trapped underground",
                                   "images/33.jpg",
                                   "https://www.youtube.com/watch?v=hOoIBOYqHyw")
-movies = [captain_underpant, fault_in_our_stars, central_intelligence, zootopia, katwe, thethirtythree]
+movies = [captain_underpant, zootopia, fault_in_our_stars, central_intelligence, katwe]
 fresh_tomatoes.open_movies_page(movies)
 
 
