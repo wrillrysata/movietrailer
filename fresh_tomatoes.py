@@ -30,7 +30,7 @@ main_page_head = '''
             font-family: 'Dosis', sans-serif; 
         }
         a{
-            color: #333333;
+            color: #black;
         }
         a:hover{
             color: #333333;
@@ -38,9 +38,11 @@ main_page_head = '''
         .navbar-brand
         {
         color:#4169E1;
+        text-align:center;
+        font-style:bold;
         }
         .navbar{
-            background: white;
+            background: #2E4053;
             box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, .05);
         }
         #trailer .modal-dialog {
