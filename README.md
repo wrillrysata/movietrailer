@@ -44,9 +44,6 @@ To install Fresh Tomatoes locally, clone the project into your system, on your t
 - class movies.py: Based on the properties defined(e.g movie_title) in the previous class(movieclass.py), this class stores the actual movies. This is where the movie objects are actually created and given values. 'freshtomatoes' and 'movieclass' are imported into this class for it to function. After giving real values to the movie objects, they are saved in an array called movies. The class then calls a function open_movies_page defined in freshtomatoes.py, takes in the array of movies as argument and prepares them from transportaion into the HTML view.
 
 ## Credits
-
-- Boilerplate code contributed by [Udacity](http://www.udacity.com).
-- Additional code contributed by [Ijebusoma]() is offered under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 - Bootstrap 3
 - Google Fonts API
 - Font Awesome API
