@@ -1,5 +1,4 @@
-
-FRESH TOMATOES MOVIE TRAILER is a Udacity Fullstack Nanodegree Project. The idea is to be able to view trailers of selected movies on site.
+The idea behind Fresh Tomatoe Movie app is to be able to view trailers of selected movies on site.
 It was built with Python, HTML, CSS and JQUERY.
 
 
